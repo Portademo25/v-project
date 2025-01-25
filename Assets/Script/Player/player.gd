@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 ## ---------- STATS ----------
 var speed = 40 ## Rapidez del jugador
+var health = 80 ## Vida actual del jugador
+var max_health = 80 ## Vida máxima del jugador
 
 ## ---------- ATAQUES ----------
 var bubble_blast = preload("res://Player/Weapons/bubble_blast.tscn")
