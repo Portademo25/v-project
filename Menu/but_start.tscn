@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0o7lrxs6g47b"]
+
+[ext_resource type="PackedScene" uid="uid://cq20b46ii6p5s" path="res://Menu/but_parent.tscn" id="1_pcrwv"]
+
+[node name="but_start" instance=ExtResource("1_pcrwv")]
+
+[node name="Label" parent="but" index="0"]
+text = "Start
+"

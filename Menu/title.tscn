@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://skqoak5risqp"]
+
+[ext_resource type="Texture2D" uid="uid://cobn810kmkdcf" path="res://Assets/Sprites/IMG_1866 (1).png" id="1_ygykn"]
+[ext_resource type="PackedScene" uid="uid://b0o7lrxs6g47b" path="res://Menu/but_start.tscn" id="2_ct3e1"]
+[ext_resource type="PackedScene" uid="uid://k7rlsotdobbu" path="res://Menu/but_quit.tscn" id="3_cd4ef"]
+[ext_resource type="AudioStream" uid="uid://ckm6i7r3kwnmk" path="res://Assets/Music/world.mp3" id="3_kh5v0"]
+
+[node name="title" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ygykn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.490625
+anchor_top = 0.750694
+anchor_right = 0.540625
+anchor_bottom = 0.934028
+offset_top = 69.5
+offset_right = -59.0
+offset_bottom = -69.5
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="but_start" parent="VBoxContainer" instance=ExtResource("2_ct3e1")]
+layout_mode = 2
+
+[node name="but_quit" parent="VBoxContainer" instance=ExtResource("3_cd4ef")]
+layout_mode = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kh5v0")
+autoplay = true
