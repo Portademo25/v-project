@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt5rjh7a3a22m"
-path="res://.godot/imported/Blue Button 2.png-e6e4b5434da7dacb02d8465239e0e235.ctex"
+uid="uid://dqu3u65or606f"
+path="res://.godot/imported/Blue Button 3.png-dcac9ad5fe6655f145cb6fbacce5caeb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Blue Button 2.png"
-dest_files=["res://.godot/imported/Blue Button 2.png-e6e4b5434da7dacb02d8465239e0e235.ctex"]
+source_file="res://Assets/Sprites/boton azul/Blue Button 3.png"
+dest_files=["res://.godot/imported/Blue Button 3.png-dcac9ad5fe6655f145cb6fbacce5caeb.ctex"]
 
 [params]
 

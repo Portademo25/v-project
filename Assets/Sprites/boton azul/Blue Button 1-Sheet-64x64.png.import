@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf67oce3skswf"
-path="res://.godot/imported/Blue-focus.png-6c5213e6398327666723c526f76b6bfd.ctex"
+uid="uid://clg25ipg1p1ey"
+path="res://.godot/imported/Blue Button 1-Sheet-64x64.png-562429fe520aa085b114e6ecfebbff8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Blue-focus.png"
-dest_files=["res://.godot/imported/Blue-focus.png-6c5213e6398327666723c526f76b6bfd.ctex"]
+source_file="res://Assets/Sprites/boton azul/Blue Button 1-Sheet-64x64.png"
+dest_files=["res://.godot/imported/Blue Button 1-Sheet-64x64.png-562429fe520aa085b114e6ecfebbff8c.ctex"]
 
 [params]
 
