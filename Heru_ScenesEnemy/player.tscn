@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpaq13n6traan"]
+
+[ext_resource type="Texture2D" uid="uid://bc3tmvtdhbvgk" path="res://Heru_ScenesEnemy/icon.svg" id="1_hrbc7"]
+[ext_resource type="Script" path="res://Heru_ScenesEnemy/player.gd" id="2_ufdr1"]
+
+[node name="Player" type="Sprite2D"]
+position = Vector2(640, 360)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_hrbc7")
+script = ExtResource("2_ufdr1")

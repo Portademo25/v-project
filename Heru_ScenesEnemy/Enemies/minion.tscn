@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://ceqtjlslf63k0"]
+
+[ext_resource type="Texture2D" uid="uid://bc3tmvtdhbvgk" path="res://Heru_ScenesEnemy/icon.svg" id="1_xb8e5"]
+[ext_resource type="Script" path="res://Heru_ScenesEnemy/Enemies/minion.gd" id="1_y76od"]
+[ext_resource type="PackedScene" uid="uid://cpaq13n6traan" path="res://Heru_ScenesEnemy/player.tscn" id="2_j1cwa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fo51y"]
+radius = 34.5254
+
+[node name="Minion" type="CharacterBody2D" groups=["Enemy"]]
+script = ExtResource("1_y76od")
+Target_Scene = ExtResource("2_j1cwa")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(0.0333333, 1, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_xb8e5")
+
+[node name="CollisionMask" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fo51y")
