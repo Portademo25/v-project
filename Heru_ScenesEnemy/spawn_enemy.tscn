@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://du3hhn4et8uf7"]
+
+[ext_resource type="Script" path="res://Heru_ScenesEnemy/spawn_enemy.gd" id="1_m6s5q"]
+[ext_resource type="PackedScene" uid="uid://bbd6p1ccqmx40" path="res://Heru_ScenesEnemy/Enemies/asesino.tscn" id="3_qgvps"]
+[ext_resource type="PackedScene" uid="uid://b5ay5hxoq5ep6" path="res://Heru_ScenesEnemy/Enemies/hydra.tscn" id="4_eyri3"]
+[ext_resource type="PackedScene" uid="uid://ceqtjlslf63k0" path="res://Heru_ScenesEnemy/Enemies/minion.tscn" id="5_yrhc5"]
+[ext_resource type="PackedScene" uid="uid://ht1eva6ef8kg" path="res://Heru_ScenesEnemy/Enemies/tanque.tscn" id="6_mq2ru"]
+
+[node name="SpawnEnemy" type="Node2D"]
+script = ExtResource("1_m6s5q")
+Minion_Scene = ExtResource("5_yrhc5")
+Tanque_Scene = ExtResource("6_mq2ru")
+Asesino_Scene = ExtResource("3_qgvps")
+Hydra_Scene = ExtResource("4_eyri3")
+metadata/_edit_group_ = true
+
+[node name="Timer_Minion" type="Timer" parent="."]
+autostart = true
+
+[node name="Timer_Tanque" type="Timer" parent="."]
+autostart = true
+
+[node name="Timer_Asesino" type="Timer" parent="."]
+autostart = true
+
+[node name="Timer_Hydra" type="Timer" parent="."]
+autostart = true
+
+[node name="ZoneTanque" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -591.5
+offset_top = -322.5
+offset_right = 591.5
+offset_bottom = 322.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.49, 0.49, 0.235294)
+metadata/_edit_use_anchors_ = true
+
+[node name="ZoneMinion" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -444.5
+offset_top = -247.5
+offset_right = 444.5
+offset_bottom = 247.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.816667, 0, 0.235294)
+metadata/_edit_use_anchors_ = true
+
+[node name="ZoneAsesino" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -308.5
+offset_top = -161.0
+offset_right = 308.5
+offset_bottom = 161.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0333333, 1, 0, 0.235294)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="timeout" from="Timer_Minion" to="." method="_on_timer_minion_timeout"]
+[connection signal="timeout" from="Timer_Tanque" to="." method="_on_timer_tanque_timeout"]
+[connection signal="timeout" from="Timer_Asesino" to="." method="_on_timer_asesino_timeout"]
+[connection signal="timeout" from="Timer_Hydra" to="." method="_on_timer_hydra_timeout"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://ht1eva6ef8kg"]
+
+[ext_resource type="Texture2D" uid="uid://bc3tmvtdhbvgk" path="res://Heru_ScenesEnemy/icon.svg" id="1_ldc6k"]
+[ext_resource type="Script" path="res://Heru_ScenesEnemy/Enemies/tanque.gd" id="1_ve1go"]
+[ext_resource type="PackedScene" uid="uid://cpaq13n6traan" path="res://Heru_ScenesEnemy/player.tscn" id="2_nlkh7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_77hvv"]
+radius = 73.2462
+
+[node name="Tanque" type="CharacterBody2D" groups=["Enemy"]]
+script = ExtResource("1_ve1go")
+Target_Scene = ExtResource("2_nlkh7")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 0.983333, 0, 1)
+texture = ExtResource("1_ldc6k")
+
+[node name="CollisionMask" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_77hvv")
