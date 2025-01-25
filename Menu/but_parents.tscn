@@ -10,7 +10,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(2, 2)
 
-[node name="butt" type="TextureButton" parent="."]
+[node name="buts" type="TextureButton" parent="."]
 layout_mode = 2
 texture_normal = ExtResource("1_ycels")
 texture_pressed = ExtResource("2_1wh55")

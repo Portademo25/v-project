@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://skqoak5risqp"]
+[gd_scene load_steps=7 format=3 uid="uid://skqoak5risqp"]
 
+[ext_resource type="Script" path="res://Menu/title.gd" id="1_c6ikf"]
 [ext_resource type="Texture2D" uid="uid://cobn810kmkdcf" path="res://Assets/Sprites/IMG_1866 (1).png" id="1_ygykn"]
 [ext_resource type="PackedScene" uid="uid://b0o7lrxs6g47b" path="res://Menu/but_start.tscn" id="2_ct3e1"]
 [ext_resource type="PackedScene" uid="uid://dirduov2qhbtu" path="res://Menu/but_quit.tscn" id="3_cd4ef"]
@@ -7,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dt2emj325out1" path="res://Menu/but_options.tscn" id="4_1jjlo"]
 
 [node name="title" type="Node"]
+script = ExtResource("1_c6ikf")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -25,10 +27,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -550.0
-offset_top = -246.0
-offset_right = -486.0
-offset_bottom = -46.0
+offset_left = -362.0
+offset_top = -471.0
+offset_right = -298.0
+offset_bottom = -271.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 1)
@@ -48,3 +50,11 @@ layout_mode = 2
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_kh5v0")
 autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/but_start/but" to="." method="_on_start_but_pressed"]
+[connection signal="pressed" from="VBoxContainer/but_quit/butts" to="." method="_on_quit_butts_pressed"]
+[connection signal="pressed" from="VBoxContainer/but_options/buts" to="." method="_on_options_buts_pressed"]
+
+[editable path="VBoxContainer/but_start"]
+[editable path="VBoxContainer/but_quit"]
+[editable path="VBoxContainer/but_options"]
