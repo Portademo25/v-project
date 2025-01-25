@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://skqoak5risqp"]
 
 [ext_resource type="Script" path="res://Menu/title.gd" id="1_c6ikf"]
-[ext_resource type="Texture2D" uid="uid://cobn810kmkdcf" path="res://Assets/Sprites/IMG_1866 (1).png" id="1_ygykn"]
+[ext_resource type="Texture2D" uid="uid://5wa7fdnbn3tq" path="res://Assets/Sprites/splash art full.png" id="2_bkwcs"]
 [ext_resource type="PackedScene" uid="uid://b0o7lrxs6g47b" path="res://Menu/but_start.tscn" id="2_ct3e1"]
 [ext_resource type="PackedScene" uid="uid://dirduov2qhbtu" path="res://Menu/but_quit.tscn" id="3_cd4ef"]
 [ext_resource type="AudioStream" uid="uid://ckm6i7r3kwnmk" path="res://Assets/Music/world.mp3" id="3_kh5v0"]
@@ -16,23 +16,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ygykn")
+texture = ExtResource("2_bkwcs")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 clip_contents = true
 custom_minimum_size = Vector2(10, 0)
 layout_direction = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -362.0
-offset_top = -471.0
-offset_right = -298.0
-offset_bottom = -271.0
+anchors_preset = -1
+anchor_left = 0.226563
+anchor_top = 0.345833
+anchor_right = 0.326562
+anchor_bottom = 0.623611
+offset_right = -64.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 scale = Vector2(2, 1)
 size_flags_horizontal = 6
 size_flags_vertical = 3

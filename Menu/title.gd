@@ -16,8 +16,8 @@ func _on_start_but_pressed() -> void:
 
 
 func _on_quit_butts_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().quit()
 
 
 func _on_options_buts_pressed() -> void:
-	pass # Replace with function body.
+	pass # Replace with funz
