@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfbxj1rmh5ml0"]
+
+[ext_resource type="Texture2D" uid="uid://dbkclbv01pexj" path="res://Assets/Sprites/boton azul/Blue Button option-Sheet_1.png" id="1_ycels"]
+[ext_resource type="Texture2D" uid="uid://f1qq246b2a4l" path="res://Assets/Sprites/boton azul/Blue Button option-Sheet_4.png" id="2_1wh55"]
+[ext_resource type="Texture2D" uid="uid://b27x2k1vn2cbm" path="res://Assets/Sprites/boton azul/Blue Button option-Sheet_2.png" id="3_tn3c2"]
+[ext_resource type="Texture2D" uid="uid://cbfnqialvsolm" path="res://Assets/Sprites/boton azul/Blue Button option-Sheet_3.png" id="4_6wdvx"]
+
+[node name="but_parents" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+
+[node name="butt" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("1_ycels")
+texture_pressed = ExtResource("2_1wh55")
+texture_hover = ExtResource("3_tn3c2")
+texture_disabled = ExtResource("4_6wdvx")

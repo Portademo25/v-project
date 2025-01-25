@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt2emj325out1"]
+
+[ext_resource type="PackedScene" uid="uid://bfbxj1rmh5ml0" path="res://Menu/but_parents.tscn" id="1_xo7yt"]
+
+[node name="but_options" instance=ExtResource("1_xo7yt")]
+scale = Vector2(6, 4)

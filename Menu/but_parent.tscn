@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cq20b46ii6p5s"]
+[gd_scene load_steps=7 format=3 uid="uid://cq20b46ii6p5s"]
 
 [ext_resource type="Texture2D" uid="uid://c6a4pvkrar03g" path="res://Assets/Sprites/boton azul/Blue Button 1.png" id="1_i1rhf"]
 [ext_resource type="Texture2D" uid="uid://dwxoa2jkmisp1" path="res://Assets/Sprites/boton azul/Blue Button 4.png" id="2_2yrl1"]
 [ext_resource type="Texture2D" uid="uid://dpshr13aowq0l" path="res://Assets/Sprites/boton azul/Blue Button 2.png" id="3_iu7pt"]
 [ext_resource type="FontFile" uid="uid://ial2tes8vkom" path="res://Assets/fotns/a_okay/aokay.ttf" id="4_7ajqh"]
+[ext_resource type="Texture2D" uid="uid://dqu3u65or606f" path="res://Assets/Sprites/boton azul/Blue Button 3.png" id="4_tl50d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sjtf7"]
 line_spacing = 11.0
@@ -14,13 +15,15 @@ outline_color = Color(0.0475577, 0.0475576, 0.0475576, 1)
 [node name="but_parent" type="HBoxContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(1, 0)
 
 [node name="but" type="TextureButton" parent="."]
 layout_mode = 2
 texture_normal = ExtResource("1_i1rhf")
 texture_pressed = ExtResource("2_2yrl1")
 texture_hover = ExtResource("3_iu7pt")
-texture_disabled = ExtResource("2_2yrl1")
+texture_disabled = ExtResource("4_tl50d")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="but"]

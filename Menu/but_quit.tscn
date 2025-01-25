@@ -1,9 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://k7rlsotdobbu"]
+[gd_scene load_steps=2 format=3 uid="uid://dirduov2qhbtu"]
 
-[ext_resource type="PackedScene" uid="uid://cq20b46ii6p5s" path="res://Menu/but_parent.tscn" id="1_ainv3"]
+[ext_resource type="PackedScene" uid="uid://bis4j0e2ojsc5" path="res://Menu/but_parents!.tscn" id="1_h0wpy"]
 
-[node name="but_quit" instance=ExtResource("1_ainv3")]
-
-[node name="Label" parent="but" index="0"]
-text = "Quit
-"
+[node name="but_quit" instance=ExtResource("1_h0wpy")]
+scale = Vector2(6, 4)

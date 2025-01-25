@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buy5xpyok51wl"
-path="res://.godot/imported/Blue Button Quit-Sheet-64x64.png-fc48bd69e7bf21c2b40154699c82c59c.ctex"
+uid="uid://dpvisfgsj325m"
+path="res://.godot/imported/Blue Button Quit-Sheet_4.png-4d5f2142737ef148e2b595cc8fea44f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/boton azul/Blue Button Quit-Sheet-64x64.png"
-dest_files=["res://.godot/imported/Blue Button Quit-Sheet-64x64.png-fc48bd69e7bf21c2b40154699c82c59c.ctex"]
+source_file="res://Assets/Sprites/boton azul/Blue Button Quit-Sheet_4.png"
+dest_files=["res://.godot/imported/Blue Button Quit-Sheet_4.png-4d5f2142737ef148e2b595cc8fea44f9.ctex"]
 
 [params]
 

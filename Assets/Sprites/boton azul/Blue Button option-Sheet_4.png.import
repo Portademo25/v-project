@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc2tnjdbyp18h"
-path="res://.godot/imported/Blue Button 1-Sheet-64x64.png-b63f5f6a58f614acf09f1c77e52317dd.ctex"
+uid="uid://f1qq246b2a4l"
+path="res://.godot/imported/Blue Button option-Sheet_4.png-913243c449202ac9f2e37ba3d0421eda.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Blue Button 1-Sheet-64x64.png"
-dest_files=["res://.godot/imported/Blue Button 1-Sheet-64x64.png-b63f5f6a58f614acf09f1c77e52317dd.ctex"]
+source_file="res://Assets/Sprites/boton azul/Blue Button option-Sheet_4.png"
+dest_files=["res://.godot/imported/Blue Button option-Sheet_4.png-913243c449202ac9f2e37ba3d0421eda.ctex"]
 
 [params]
 
