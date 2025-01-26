@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://ceqtjlslf63k0"]
 
-[ext_resource type="Texture2D" uid="uid://bc3tmvtdhbvgk" path="res://icon.svg" id="1_xb8e5"]
 [ext_resource type="Script" path="res://Heru_ScenesEnemy/Enemies/minion.gd" id="1_y76od"]
 [ext_resource type="PackedScene" uid="uid://dexn2e18f2bmf" path="res://Player/player.tscn" id="2_j1cwa"]
+[ext_resource type="Texture2D" uid="uid://chcmml0pguevr" path="res://Assets/Sprites/Spritesa_pez_01.png" id="3_ognlj"]
 [ext_resource type="PackedScene" uid="uid://bdl0a1f1d0whn" path="res://Utility/hurt_box.tscn" id="4_4wugc"]
 [ext_resource type="PackedScene" uid="uid://dh0pbrpqkfihp" path="res://Utility/hit_box.tscn" id="5_yu7pg"]
 
@@ -20,9 +20,11 @@ script = ExtResource("1_y76od")
 Target_Scene = ExtResource("2_j1cwa")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-modulate = Color(0.0333333, 1, 0, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_xb8e5")
+light_mask = 2
+visibility_layer = 2
+position = Vector2(0, 8.34465e-07)
+scale = Vector2(0.0571429, 0.0685714)
+texture = ExtResource("3_ognlj")
 
 [node name="CollisionMask" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fo51y")

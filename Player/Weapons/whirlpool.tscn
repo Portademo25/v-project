@@ -1,14 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1g00lqvprcbj"]
 
 [ext_resource type="Script" path="res://Player/Weapons/whirlpool.gd" id="1_hxnyr"]
-[ext_resource type="Texture2D" uid="uid://dfhfqxcnandie" path="res://Temp/Bubble.png" id="2_8ymhv"]
-[ext_resource type="AudioStream" uid="uid://de0q23kt6qwmm" path="res://Temp/sci-fi-bubble-pop-89059.mp3" id="3_ny4il"]
+[ext_resource type="Texture2D" uid="uid://dfhfqxcnandie" path="res://Assets/Temp/Bubble.png" id="2_8ymhv"]
+[ext_resource type="AudioStream" uid="uid://de0q23kt6qwmm" path="res://Assets/Temp/sci-fi-bubble-pop-89059.mp3" id="3_ny4il"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kepwv"]
 radius = 17.0
 
 [node name="Whirlpool" type="Area2D"]
 top_level = true
+light_mask = 4
+visibility_layer = 4
 z_index = -4
 script = ExtResource("1_hxnyr")
 

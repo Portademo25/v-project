@@ -1,14 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://b67k0ywnc66lk"]
 
 [ext_resource type="Script" path="res://Player/Weapons/bubble_beam.gd" id="1_uii8h"]
-[ext_resource type="Texture2D" uid="uid://dfhfqxcnandie" path="res://Temp/Bubble.png" id="2_6rmvf"]
-[ext_resource type="AudioStream" uid="uid://de0q23kt6qwmm" path="res://Temp/sci-fi-bubble-pop-89059.mp3" id="3_bjsvq"]
+[ext_resource type="Texture2D" uid="uid://dfhfqxcnandie" path="res://Assets/Temp/Bubble.png" id="2_6rmvf"]
+[ext_resource type="AudioStream" uid="uid://de0q23kt6qwmm" path="res://Assets/Temp/sci-fi-bubble-pop-89059.mp3" id="3_bjsvq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kepwv"]
 radius = 17.0
 
 [node name="BubbleBlast" type="Area2D"]
 top_level = true
+light_mask = 4
+visibility_layer = 4
 script = ExtResource("1_uii8h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -25,4 +27,5 @@ autostart = true
 stream = ExtResource("3_bjsvq")
 autoplay = true
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

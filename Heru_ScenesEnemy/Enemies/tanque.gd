@@ -28,6 +28,12 @@ func _physics_process(delta: float) -> void:
 	#lag = lag + (360 / 60) if lag < 360 else lag * 0
 	var low = 1#abs(cos(deg_to_rad(lag)))
 	
+	if sign(point.x) == 1:
+		$Sprite.flip_h=true
+	elif sign(point.x) == -1:
+		$Sprite.flip_h=false
+	
+	
 	direction = lerp(direction, point, 10)
 	
 	position += ((Speed * direction) * low) * delta

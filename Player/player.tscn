@@ -1,43 +1,23 @@
-
-[gd_scene load_steps=10 format=3 uid="uid://dexn2e18f2bmf"]
-
-[ext_resource type="Script" path="res://Player/player.gd" id="1_pstjk"]
-[ext_resource type="Texture2D" uid="uid://c34341sv5dgel" path="res://Assets/Sprites/Sprite Sheets Pato/1 (2).png" id="2_6wcd1"]
-[ext_resource type="PackedScene" uid="uid://bdl0a1f1d0whn" path="res://Utility/hurt_box.tscn" id="3_h6o4n"]
-[ext_resource type="Texture2D" uid="uid://dobnadpptdlnu" path="res://Assets/Sprites/Interfaz XP/Inicio XP Icon.png" id="4_uui7m"]
-[ext_resource type="FontFile" uid="uid://ial2tes8vkom" path="res://Assets/fotns/a_okay/aokay.ttf" id="5_6wbrh"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_of846"]
-height = 35.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ols3"]
-size = Vector2(26, 57)
-
-[gd_scene load_steps=3 format=3 uid="uid://dexn2e18f2bmf"]
+[gd_scene load_steps=6 format=3 uid="uid://dexn2e18f2bmf"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xnhpy"]
-[ext_resource type="Texture2D" uid="uid://j41rm1uo7w4t" path="res://Temp/4509710_1.png" id="2_bkcgm"]
+[ext_resource type="Texture2D" uid="uid://c34341sv5dgel" path="res://Assets/Sprites/Sprite Sheets Pato/1 (2).png" id="2_3upwt"]
+[ext_resource type="PackedScene" uid="uid://bdl0a1f1d0whn" path="res://Utility/hurt_box.tscn" id="3_j3h2k"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o6034"]
+radius = 17.0
+height = 62.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3hovu"]
-radius = 50.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_sdiy5"]
+radius = 32.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_aatie"]
-
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(0, 1)
 motion_mode = 1
 script = ExtResource("1_xnhpy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-
-texture = ExtResource("2_6wcd1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_of846")
-
-texture = ExtResource("2_bkcgm")
-
+texture = ExtResource("2_3upwt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -67,64 +47,20 @@ wait_time = 1.5
 unique_name_in_owner = true
 wait_time = 0.075
 
-[node name="GrabArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 8
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_o6034")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
-shape = SubResource("CircleShape2D_3hovu")
+[node name="HurtBox" parent="." instance=ExtResource("3_j3h2k")]
 
-[node name="CollectArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
-shape = SubResource("CircleShape2D_aatie")
-
-[node name="GUILayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="GUILayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 640.0
-offset_bottom = 360.0
-
-[node name="ExperienciaBar" type="TextureProgressBar" parent="GUILayer/Control"]
-unique_name_in_owner = true
-layout_direction = 1
-layout_mode = 1
-offset_right = 33.0
-offset_bottom = 25.0
-nine_patch_stretch = true
-texture_over = ExtResource("4_uui7m")
-
-[node name="lbl_level" type="Label" parent="GUILayer/Control/ExperienciaBar"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 37.5
-offset_right = 50.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("5_6wbrh")
-text = "Level: 1"
-horizontal_alignment = 2
-vertical_alignment = 1
-justification_flags = 171
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("CircleShape2D_sdiy5")
 
 [connection signal="timeout" from="Attack/BubbleBlastTimer" to="." method="_on_bubble_blast_timer_timeout"]
 [connection signal="timeout" from="Attack/BubbleBlastTimer/BubbleBlastAttackTimer" to="." method="_on_bubble_blast_attack_timer_timeout"]
-<<<<<<< HEAD
-[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
-[connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
-[connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
-
-[editable path="HurtBox"]
-=======
 [connection signal="timeout" from="Attack/BubbleBeamTimer" to="." method="_on_bubble_beam_timer_timeout"]
 [connection signal="timeout" from="Attack/BubbleBeamTimer/BubbleBeamAttackTimer" to="." method="_on_bubble_beam_attack_timer_timeout"]
 [connection signal="timeout" from="Attack/WhirlpoolTimer" to="." method="_on_whirlpool_timer_timeout"]
 [connection signal="timeout" from="Attack/WhirlpoolTimer/WhirlpoolAttackTimer" to="." method="_on_whirlpool_attack_timer_timeout"]
->>>>>>> cb0f85a86177c5563f8b34e0f47ad49951c54a54
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]

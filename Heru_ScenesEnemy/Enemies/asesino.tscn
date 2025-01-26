@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://bbd6p1ccqmx40"]
 
-[ext_resource type="Texture2D" uid="uid://bc3tmvtdhbvgk" path="res://icon.svg" id="1_7w0cb"]
 [ext_resource type="Script" path="res://Heru_ScenesEnemy/Enemies/asesino.gd" id="1_ck4t3"]
 [ext_resource type="PackedScene" uid="uid://dexn2e18f2bmf" path="res://Player/player.tscn" id="2_m82t5"]
+[ext_resource type="Texture2D" uid="uid://b5d16n470netr" path="res://Assets/Sprites/Sprites_pez_01.png" id="3_fdwkl"]
 [ext_resource type="PackedScene" uid="uid://bdl0a1f1d0whn" path="res://Utility/hurt_box.tscn" id="4_qlgeo"]
 [ext_resource type="PackedScene" uid="uid://dh0pbrpqkfihp" path="res://Utility/hit_box.tscn" id="5_xk7ru"]
 
@@ -15,14 +15,17 @@ size = Vector2(85, 82)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fya43"]
 size = Vector2(48, 48)
 
-[node name="Asesino" type="CharacterBody2D" groups=["Enemy", "loot"]]
+[node name="Asesino" type="CharacterBody2D" groups=["Enemy", "attack", "loot"]]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_ck4t3")
 Target_Scene = ExtResource("2_m82t5")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.45, 0.45, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_7w0cb")
+position = Vector2(2.38419e-06, 4.76837e-07)
+scale = Vector2(0.057, 0.069)
+texture = ExtResource("3_fdwkl")
 
 [node name="CollisionMask" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_k0xdu")
@@ -40,7 +43,7 @@ visibility_layer = 0
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" parent="HitBox" index="0"]
+[node name="CollisionShape2D" parent="HitBox" index="0" groups=["Enemy", "attack"]]
 shape = SubResource("RectangleShape2D_fya43")
 
 [node name="dead" type="AudioStreamPlayer2D" parent="."]

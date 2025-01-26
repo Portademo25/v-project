@@ -42,3 +42,9 @@ func hit():
 func _on_timer_timeout():
 	## Destruye el proyectil cuando el tiempo llega a cero
 	queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Enemy"):
+		body._on_hurt_box_hurt(damage)
+		hit() 

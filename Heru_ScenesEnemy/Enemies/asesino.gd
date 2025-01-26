@@ -35,7 +35,10 @@ func _physics_process(delta: float) -> void:
 	position += ((Speed * direction) * low) * delta
 	#move_and_slide()
 
-
+	if sign(point.x) == 1:
+		$Sprite.flip_h=true
+	elif sign(point.x) == -1:
+		$Sprite.flip_h=false
 #
 	#Hurt = true
 	#HP -= power

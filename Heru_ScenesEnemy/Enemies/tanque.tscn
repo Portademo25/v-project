@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://ht1eva6ef8kg"]
 
-[ext_resource type="Texture2D" uid="uid://bc3tmvtdhbvgk" path="res://icon.svg" id="1_ldc6k"]
 [ext_resource type="Script" path="res://Heru_ScenesEnemy/Enemies/tanque.gd" id="1_ve1go"]
 [ext_resource type="PackedScene" uid="uid://dexn2e18f2bmf" path="res://Player/player.tscn" id="2_nlkh7"]
+[ext_resource type="Texture2D" uid="uid://ffhawvdh3lbx" path="res://Assets/Sprites/Spritesm_pez_01.png" id="3_h21ht"]
 [ext_resource type="PackedScene" uid="uid://bdl0a1f1d0whn" path="res://Utility/hurt_box.tscn" id="4_8yq1u"]
 [ext_resource type="PackedScene" uid="uid://dh0pbrpqkfihp" path="res://Utility/hit_box.tscn" id="5_qqfub"]
 
@@ -20,8 +20,10 @@ script = ExtResource("1_ve1go")
 Target_Scene = ExtResource("2_nlkh7")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-modulate = Color(1, 0.983333, 0, 1)
-texture = ExtResource("1_ldc6k")
+light_mask = 2
+visibility_layer = 2
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("3_h21ht")
 
 [node name="CollisionMask" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_77hvv")

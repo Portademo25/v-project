@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b0o7lrxs6g47b" path="res://Menu/but_start.tscn" id="2_ct3e1"]
 [ext_resource type="PackedScene" uid="uid://dirduov2qhbtu" path="res://Menu/but_quit.tscn" id="3_cd4ef"]
 [ext_resource type="PackedScene" uid="uid://dt2emj325out1" path="res://Menu/but_options.tscn" id="4_1jjlo"]
-[ext_resource type="AudioStream" uid="uid://bvxt5vhi2gsp8" path="res://Assets/Music/main level.wav" id="6_r4j2l"]
+[ext_resource type="AudioStream" uid="uid://dcfdtj4s2hnjt" path="res://menu.mp3" id="6_gljpf"]
 
 [node name="title" type="Node"]
 script = ExtResource("1_c6ikf")
@@ -42,10 +42,11 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="but_options" parent="VBoxContainer" instance=ExtResource("4_1jjlo")]
+visible = false
 layout_mode = 2
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_r4j2l")
+stream = ExtResource("6_gljpf")
 autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/but_start/but" to="." method="_on_start_but_pressed"]

@@ -1,11 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://citnvmg8sg5js"]
+[gd_scene load_steps=5 format=3 uid="uid://citnvmg8sg5js"]
 
 [ext_resource type="PackedScene" uid="uid://dexn2e18f2bmf" path="res://Player/player.tscn" id="1_512c0"]
 [ext_resource type="Texture2D" uid="uid://cv8mfi4mtbdo8" path="res://Assets/Sprites/Background.png" id="1_bk5ej"]
 [ext_resource type="PackedScene" uid="uid://du3hhn4et8uf7" path="res://Heru_ScenesEnemy/spawn_enemy.tscn" id="2_cofvx"]
-[ext_resource type="PackedScene" uid="uid://cmuslegmv575s" path="res://Objects/experiencie.tscn" id="4_3g72m"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qctk1"]
+[ext_resource type="AudioStream" uid="uid://uia5q2bcpvb6" path="res://main level.mp3" id="4_7x5cy"]
 
 [node name="World" type="Node"]
 
@@ -22,11 +20,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_512c0")]
 position = Vector2(640, 360)
-
-[node name="ExperienciaBar" parent="Player/GUILayer/Control" index="0"]
-texture_progress = SubResource("CompressedTexture2D_qctk1")
-tint_under = Color(1, 1, 1, 1)
-tint_progress = Color(1, 1, 1, 1)
+collision_layer = 4
+collision_mask = 4
 
 [node name="SpawnEnemy" parent="." instance=ExtResource("2_cofvx")]
 position = Vector2(640, 360)
@@ -41,30 +36,9 @@ visible = false
 [node name="ZoneAsesino" parent="SpawnEnemy" index="6"]
 visible = false
 
-[node name="Experiencie" parent="." instance=ExtResource("4_3g72m")]
-collision_layer = 8
-collision_mask = 0
-
-[node name="Experiencie2" parent="." instance=ExtResource("4_3g72m")]
-collision_layer = 8
-collision_mask = 0
-
-[node name="Experiencie3" parent="." instance=ExtResource("4_3g72m")]
-collision_layer = 8
-collision_mask = 0
-
-[node name="Experiencie4" parent="." instance=ExtResource("4_3g72m")]
-collision_layer = 8
-collision_mask = 0
-
-[node name="Experiencie5" parent="." instance=ExtResource("4_3g72m")]
-collision_layer = 8
-collision_mask = 0
-
-[node name="Experiencie6" parent="." instance=ExtResource("4_3g72m")]
-collision_layer = 8
-collision_mask = 0
-experiencia = 50
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7x5cy")
+autoplay = true
 
 [editable path="Player"]
 [editable path="Player/HurtBox"]

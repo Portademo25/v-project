@@ -10,7 +10,7 @@ var size = 1.0 ## Tamaño del proyectil
 
 var direction = Vector2.ZERO ## Dirección del disparo
 
-@onready var player = get_tree().get_root().get_node("player") ## Nodo del jugador
+@onready var player = get_tree().get_root().get_node("Player") ## Nodo del jugador
 
 func _ready():
 	## Establece la dirección según la posición del mouse
@@ -45,3 +45,9 @@ func hit(charge = 1):
 func _on_timer_timeout():
 	## Destruye el proyectil cuando el tiempo llega a cero
 	queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Enemy"):
+		body._on_hurt_box_hurt(damage)
+		hit() 

@@ -1,39 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsc8gfddcwqvr"]
+[gd_scene load_steps=5 format=3 uid="uid://bsc8gfddcwqvr"]
 
 [ext_resource type="Script" path="res://Player/Weapons/bubble_blast.gd" id="1_vc6jp"]
-[ext_resource type="Texture2D" uid="uid://joiy1vry3r17" path="res://Assets/Sprites/Globo de agua/1 (1).png" id="2_slcwg"]
-[ext_resource type="AudioStream" uid="uid://xgutxbhni5s0" path="res://Assets/sound fxs/burbuja.wav" id="3_51v2q"]
-[ext_resource type="Texture2D" uid="uid://on024fo3ohs8" path="res://Assets/Sprites/Globo de agua/2 (1).png" id="3_k0s46"]
-[ext_resource type="Texture2D" uid="uid://k43v4bs3i76s" path="res://Assets/Sprites/Globo de agua/3 (1).png" id="4_etw2e"]
-[ext_resource type="Texture2D" uid="uid://bdhrkbw2y4f0h" path="res://Assets/Sprites/Globo de agua/4 (1).png" id="5_tltmj"]
-[ext_resource type="Texture2D" uid="uid://bmuq5s5llb3o7" path="res://Assets/Sprites/Globo de agua/5 (1).png" id="6_fevma"]
-[ext_resource type="Texture2D" uid="uid://ce3hcvjbo36dv" path="res://Assets/Sprites/Globo de agua/6 (1).png" id="7_bapfk"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_xi6t2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_slcwg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_k0s46")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_etw2e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_tltmj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_fevma")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_bapfk")
-}],
-"loop": true,
-"name": &"gun",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://dfhfqxcnandie" path="res://Assets/Temp/Bubble.png" id="2_w5elt"]
+[ext_resource type="AudioStream" uid="uid://xgutxbhni5s0" path="res://Assets/sound fxs/burbuja.wav" id="3_iq3cw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kepwv"]
 radius = 17.0
@@ -41,26 +10,23 @@ radius = 17.0
 [node name="BubbleBlast" type="Area2D" groups=["Enemy"]]
 top_level = true
 collision_layer = 4
-collision_mask = 0
+collision_mask = 4
 script = ExtResource("1_vc6jp")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_xi6t2")
-animation = &"gun"
-frame_progress = 0.860651
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_w5elt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 2
-visibility_layer = 2
 shape = SubResource("CircleShape2D_kepwv")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 8.0
 one_shot = true
 autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_51v2q")
+stream = ExtResource("3_iq3cw")
 autoplay = true
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

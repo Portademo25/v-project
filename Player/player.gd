@@ -1,12 +1,9 @@
 extends CharacterBody2D
 
 ## ---------- STATS ----------
-var speed = 40 ## Rapidez del jugador
+var speed = 80 ## Rapidez del jugador
 var health = 80 ## Vida actual del jugador
 var max_health = 80 ## Vida máxima del jugador
-var experiencia = 0 ## Experiencia a recolectar
-var experiencia_level = 1 ## Level del personaje
-var collected_experiencia = 0 ## coleccion de exp
 
 ## ---------- ATAQUES ----------
 var bubble_blast = preload("res://Player/Weapons/bubble_blast.tscn")
@@ -23,7 +20,7 @@ var whirlpool = preload("res://Player/Weapons/whirlpool.tscn")
 
 ## Bubble Blast
 var bubble_blast_ammo = 0 ## Cantidad de disparos
-var bubble_blast_baseammo = 1 ## Cantidad de proyectiles por disparo
+var bubble_blast_baseammo = 5 ## Cantidad de proyectiles por disparo
 var bubble_blast_speed = 1.5 ## Rapidez de los proyectiles
 var bubble_blast_level = 1 ## Nivel del arma
 
@@ -42,12 +39,10 @@ var whirlpool_level = 0 ## Nivel del arma
 
 ## ---------- ETC ----------
 @onready var sprite = $Sprite2D ## Sprite del jugador
-@onready var expBar = get_node("%ExperienciaBar")
-@onready var lbllevel = get_node("%lbl_level")
+
 ## ---------- FUNCIONES ----------
 func _ready():
 	attack()
-	set_expBar(experiencia, calculate_experienciacap())
 
 func _physics_process(delta):
 	movement()
@@ -120,53 +115,6 @@ func _on_bubble_beam_timer_timeout():
 	bubble_beam_direction = global_position.direction_to(get_global_mouse_position())
 	bubble_beam_attack_timer.start()
 
-
-func _on_hurt_box_hurt(damage: Variant) -> void:
-	health -= damage # Replace with function body.
-	
-
-
-func _on_grab_area_area_entered(area: Area2D) -> void:
-	if area.is_in_group("loot"):
-		area.target = self
-
-
-func _on_collect_area_area_entered(area: Area2D) -> void:
-	if area.is_in_group("loot"):
-		var gem_exp = area.collect()
-		calculate_experiencia(gem_exp)
-		
-func calculate_experiencia(gem_exp):
-	var exp_required = calculate_experienciacap()
-	collected_experiencia += gem_exp
-	if experiencia + collected_experiencia > exp_required:
-		collected_experiencia -= exp_required-experiencia
-		experiencia_level += 1
-		lbllevel.text = str("Level ",experiencia_level)
-		experiencia = 0
-		exp_required = calculate_experienciacap()
-		calculate_experiencia(0)
-	else:
-		experiencia += collected_experiencia
-		collected_experiencia = 0
-	set_expBar(experiencia,exp_required)
-
-func calculate_experienciacap():
-	var exp_cap = experiencia_level
-	if experiencia_level < 25:
-		exp_cap = experiencia_level*5
-	elif experiencia_level < 40:
-		exp_cap + 95 * (experiencia_level-19)*8
-	else:
-		exp_cap + 255 + (experiencia-39)*12
-		
-	return exp_cap
-
-func set_expBar(set_value = 1, set_max_value = 100):
-	expBar.value = set_value
-	expBar.max_value = set_max_value
-	
-
 func _on_bubble_beam_attack_timer_timeout():
 	## Dispara el ataque
 	if bubble_beam_ammo> 0:
@@ -198,7 +146,8 @@ func _on_whirlpool_attack_timer_timeout():
 			whirlpool_attack_timer.start()
 		else :
 			whirlpool_attack_timer.stop()
-<<<<<<< HEAD
-=======
 
->>>>>>> 2c9fe5aaaee723abe2955b35eaf156d46608d110
+
+func _on_hurt_box_hurt(damage: Variant) -> void:
+	health -= damage # Replace with function body.
+	
