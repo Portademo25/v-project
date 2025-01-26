@@ -1,22 +1,33 @@
 extends CharacterBody2D
 
 ## ---------- STATS ----------
-var speed = 80 ## Rapidez del jugador
+var speed = 40 ## Rapidez del jugador
 var health = 80 ## Vida actual del jugador
 var max_health = 80 ## Vida máxima del jugador
 
 ## ---------- ATAQUES ----------
 var bubble_blast = preload("res://Player/Weapons/bubble_blast.tscn")
+var bubble_beam = preload("res://Player/Weapons/bubble_beam.tscn")
 
 ## Nodos de ataque
 @onready var bubble_blast_timer = get_node("%BubbleBlastTimer")
 @onready var bubble_blast_attack_timer = get_node("%BubbleBlastAttackTimer")
+@onready var bubble_beam_timer = get_node("%BubbleBeamTimer")
+@onready var bubble_beam_attack_timer = get_node("%BubbleBeamAttackTimer")
 
 ## Bubble Blast
 var bubble_blast_ammo = 0 ## Cantidad de disparos
 var bubble_blast_baseammo = 1 ## Cantidad de proyectiles por disparo
 var bubble_blast_speed = 1.5 ## Rapidez de los proyectiles
 var bubble_blast_level = 1 ## Nivel del arma
+var direction = Vector2.ZERO
+
+## Bubble Beam
+var bubble_beam_ammo = 0 ## Cantidad de disparos
+var bubble_beam_baseammo = 20 ## Cantidad de proyectiles por disparo
+var bubble_beam_speed = 4 ## Rapidez de los proyectiles
+var bubble_beam_level = 1 ## Nivel del arma
+var bubble_beam_direction = Vector2.ZERO ## Dirección del disparo
 
 ## ---------- ETC ----------
 @onready var sprite = $Sprite2D ## Sprite del jugador
@@ -59,6 +70,12 @@ func attack():
 		bubble_blast_timer.wait_time = bubble_blast_speed
 		if bubble_blast_timer.is_stopped():
 			bubble_blast_timer.start()
+	
+	## Bubble Beam
+	if bubble_beam_level > 0:
+		bubble_beam_timer.wait_time = bubble_beam_speed
+		if bubble_beam_timer.is_stopped():
+			bubble_beam_timer.start()
 
 func _on_bubble_blast_timer_timeout():
 	## Carga la munición
@@ -78,7 +95,22 @@ func _on_bubble_blast_attack_timer_timeout():
 		else :
 			bubble_blast_attack_timer.stop()
 
+func _on_bubble_beam_timer_timeout():
+	## Carga la munición
+	bubble_beam_ammo = bubble_beam_baseammo
+	bubble_beam_direction = global_position.direction_to(get_global_mouse_position())
+	bubble_beam_attack_timer.start()
 
-func _on_hurt_box_hurt(damage: Variant) -> void:
-	health -= damage # Replace with function body.
-	print(health)
+func _on_bubble_beam_attack_timer_timeout():
+	## Dispara el ataque
+	if bubble_beam_ammo> 0:
+		var bubble_beam_attack = bubble_beam.instantiate()
+		bubble_beam_attack.position = position
+		bubble_beam_attack.level = bubble_beam_level
+		bubble_beam_attack.direction = bubble_beam_direction
+		add_child(bubble_beam_attack)
+		bubble_beam_ammo -= 1
+		if bubble_beam_ammo > 0:
+			bubble_beam_attack_timer.start()
+		else :
+			bubble_beam_attack_timer.stop()
