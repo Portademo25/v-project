@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://citnvmg8sg5js"]
+
+[ext_resource type="PackedScene" uid="uid://dexn2e18f2bmf" path="res://Player/player.tscn" id="1_512c0"]
+[ext_resource type="PackedScene" uid="uid://du3hhn4et8uf7" path="res://Heru_ScenesEnemy/spawn_enemy.tscn" id="2_cofvx"]
+
+[node name="World" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_512c0")]
+position = Vector2(640, 360)
+
+[node name="SpawnEnemy" parent="." instance=ExtResource("2_cofvx")]
+position = Vector2(640, 360)
+
+[editable path="SpawnEnemy"]

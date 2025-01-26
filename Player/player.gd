@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 ## ---------- STATS ----------
-var speed = 40 ## Rapidez del jugador
+var speed = 80 ## Rapidez del jugador
 var health = 80 ## Vida actual del jugador
 var max_health = 80 ## Vida máxima del jugador
 

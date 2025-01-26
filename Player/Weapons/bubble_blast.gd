@@ -10,7 +10,7 @@ var size = 1.0 ## Tamaño del proyectil
 
 var direction = Vector2.ZERO ## Dirección del disparo
 
-@onready var player = get_tree().get_root().get_node("Player") ## Nodo del jugador
+@onready var player = get_tree().get_root().get_node("player") ## Nodo del jugador
 
 func _ready():
 	## Establece la dirección según la posición del mouse

@@ -19,7 +19,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	var player = get_parent().get_node("Player") 
+	var player = get_parent().get_node("player") 
 	position = player.position if player else Vector2(1280 / 2, 720 / 2)
 
 

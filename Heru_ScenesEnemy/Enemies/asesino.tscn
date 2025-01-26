@@ -1,15 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://bbd6p1ccqmx40"]
 
-[ext_resource type="Texture2D" uid="uid://bc3tmvtdhbvgk" path="res://Heru_ScenesEnemy/icon.svg" id="1_7w0cb"]
+[ext_resource type="Texture2D" uid="uid://bc3tmvtdhbvgk" path="res://icon.svg" id="1_7w0cb"]
 [ext_resource type="Script" path="res://Heru_ScenesEnemy/Enemies/asesino.gd" id="1_ck4t3"]
-[ext_resource type="PackedScene" uid="uid://cpaq13n6traan" path="res://Heru_ScenesEnemy/player.tscn" id="2_dllme"]
+[ext_resource type="PackedScene" uid="uid://dexn2e18f2bmf" path="res://Player/player.tscn" id="2_vo23n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k0xdu"]
 radius = 36.0
 
 [node name="Asesino" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_ck4t3")
-Target_Scene = ExtResource("2_dllme")
+Target_Scene = ExtResource("2_vo23n")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.45, 0.45, 1)
