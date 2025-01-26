@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bc3tmvtdhbvgk" path="res://icon.svg" id="1_7w0cb"]
 [ext_resource type="Script" path="res://Heru_ScenesEnemy/Enemies/asesino.gd" id="1_ck4t3"]
-[ext_resource type="PackedScene" uid="uid://dexn2e18f2bmf" path="res://Player/player.tscn" id="2_vo23n"]
+[ext_resource type="PackedScene" uid="uid://dexn2e18f2bmf" path="res://Player/player.tscn" id="2_m82t5"]
 [ext_resource type="PackedScene" uid="uid://bdl0a1f1d0whn" path="res://Utility/hurt_box.tscn" id="4_qlgeo"]
 [ext_resource type="PackedScene" uid="uid://dh0pbrpqkfihp" path="res://Utility/hit_box.tscn" id="5_xk7ru"]
 
@@ -15,9 +15,9 @@ size = Vector2(85, 82)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fya43"]
 size = Vector2(48, 48)
 
-[node name="Asesino" type="CharacterBody2D" groups=["Enemy"]]
+[node name="Asesino" type="CharacterBody2D" groups=["Enemy", "loot"]]
 script = ExtResource("1_ck4t3")
-Target_Scene = ExtResource("2_vo23n")
+Target_Scene = ExtResource("2_m82t5")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.45, 0.45, 1)
@@ -27,14 +27,14 @@ texture = ExtResource("1_7w0cb")
 [node name="CollisionMask" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_k0xdu")
 
-[node name="HurtBox" parent="." instance=ExtResource("4_qlgeo")]
+[node name="HurtBox" parent="." groups=["Enemy", "loot"] instance=ExtResource("4_qlgeo")]
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource("RectangleShape2D_wyh3h")
 
-[node name="HitBox" parent="." instance=ExtResource("5_xk7ru")]
+[node name="HitBox" parent="." groups=["Enemy"] instance=ExtResource("5_xk7ru")]
 light_mask = 0
 visibility_layer = 0
 collision_layer = 2
@@ -42,6 +42,8 @@ collision_mask = 2
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource("RectangleShape2D_fya43")
+
+[node name="dead" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 

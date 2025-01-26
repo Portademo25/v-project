@@ -36,7 +36,7 @@ func _physics_process(delta):
 	## Cambia la posición del proyectil
 	position += speed * direction * delta
 
-func hit():
+func hit(charge = 1):
 	## Controla el impacto del proyectil con un enemigo
 	hits -= 1
 	if hits <= 0:

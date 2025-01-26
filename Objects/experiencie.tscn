@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmuslegmv575s"]
+
+[ext_resource type="Script" path="res://Objects/experiencie.gd" id="1_7h3y8"]
+[ext_resource type="Texture2D" uid="uid://dfhfqxcnandie" path="res://Assets/Temp/Bubble.png" id="1_pmhod"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nvn27"]
+radius = 15.0
+
+[node name="Experiencie" type="Area2D" groups=["loot"]]
+script = ExtResource("1_7h3y8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pmhod")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nvn27")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

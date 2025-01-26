@@ -5,10 +5,10 @@ extends Node2D
 @export var Asesino_Scene : PackedScene
 @export var Hydra_Scene : PackedScene
 
-@export var Spawn_Minion : float = 2
-@export var Spawn_Tanque : float = 5
-@export var Spawn_Asesino : float = 3
-@export var Spawn_Hydra : float = 2
+@export var Spawn_Minion : float = 4
+@export var Spawn_Tanque : float = 10
+@export var Spawn_Asesino : float = 6
+@export var Spawn_Hydra : float = 11
 
 
 func _ready() -> void:

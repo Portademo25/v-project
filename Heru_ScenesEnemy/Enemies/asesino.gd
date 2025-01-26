@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
 @export var Target_Scene : PackedScene
-@export var Speed : int = 85
+@export var Speed : int = 45
 @export var HP : int = 25
+@export var experiencia = 1
 
 var target = null 
+
 
 var lag = 0
 var Hurt = false
