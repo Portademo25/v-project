@@ -198,3 +198,7 @@ func _on_whirlpool_attack_timer_timeout():
 			whirlpool_attack_timer.start()
 		else :
 			whirlpool_attack_timer.stop()
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2c9fe5aaaee723abe2955b35eaf156d46608d110
