@@ -11,4 +11,6 @@ position = Vector2(640, 360)
 [node name="SpawnEnemy" parent="." instance=ExtResource("2_cofvx")]
 position = Vector2(640, 360)
 
+[editable path="Player"]
+[editable path="Player/HurtBox"]
 [editable path="SpawnEnemy"]

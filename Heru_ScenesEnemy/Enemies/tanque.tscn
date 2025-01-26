@@ -1,11 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://ht1eva6ef8kg"]
+[gd_scene load_steps=9 format=3 uid="uid://ht1eva6ef8kg"]
 
 [ext_resource type="Texture2D" uid="uid://bc3tmvtdhbvgk" path="res://icon.svg" id="1_ldc6k"]
 [ext_resource type="Script" path="res://Heru_ScenesEnemy/Enemies/tanque.gd" id="1_ve1go"]
 [ext_resource type="PackedScene" uid="uid://dexn2e18f2bmf" path="res://Player/player.tscn" id="2_nlkh7"]
+[ext_resource type="PackedScene" uid="uid://bdl0a1f1d0whn" path="res://Utility/hurt_box.tscn" id="4_8yq1u"]
+[ext_resource type="PackedScene" uid="uid://dh0pbrpqkfihp" path="res://Utility/hit_box.tscn" id="5_qqfub"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_77hvv"]
 radius = 73.2462
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkvnv"]
+size = Vector2(166, 166)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjhnd"]
+size = Vector2(100, 100)
 
 [node name="Tanque" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_ve1go")
@@ -17,3 +25,22 @@ texture = ExtResource("1_ldc6k")
 
 [node name="CollisionMask" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_77hvv")
+
+[node name="HurtBox" parent="." instance=ExtResource("4_8yq1u")]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_wkvnv")
+
+[node name="HitBox" parent="." instance=ExtResource("5_qqfub")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("RectangleShape2D_pjhnd")
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

@@ -1,11 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://ceqtjlslf63k0"]
+[gd_scene load_steps=9 format=3 uid="uid://ceqtjlslf63k0"]
 
 [ext_resource type="Texture2D" uid="uid://bc3tmvtdhbvgk" path="res://icon.svg" id="1_xb8e5"]
 [ext_resource type="Script" path="res://Heru_ScenesEnemy/Enemies/minion.gd" id="1_y76od"]
 [ext_resource type="PackedScene" uid="uid://dexn2e18f2bmf" path="res://Player/player.tscn" id="2_j1cwa"]
+[ext_resource type="PackedScene" uid="uid://bdl0a1f1d0whn" path="res://Utility/hurt_box.tscn" id="4_4wugc"]
+[ext_resource type="PackedScene" uid="uid://dh0pbrpqkfihp" path="res://Utility/hit_box.tscn" id="5_yu7pg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fo51y"]
 radius = 34.5254
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jl0l6"]
+size = Vector2(80, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8d46"]
+size = Vector2(50, 50)
 
 [node name="Minion" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_y76od")
@@ -18,3 +26,22 @@ texture = ExtResource("1_xb8e5")
 
 [node name="CollisionMask" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fo51y")
+
+[node name="HurtBox" parent="." instance=ExtResource("4_4wugc")]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_jl0l6")
+
+[node name="HitBox" parent="." instance=ExtResource("5_yu7pg")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("RectangleShape2D_a8d46")
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

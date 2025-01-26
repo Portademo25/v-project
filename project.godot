@@ -23,6 +23,17 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
+[layer_names]
+
+2d_render/layer_1="world"
+2d_render/layer_2="player"
+2d_render/layer_3="enemy"
+2d_render/layer_4="loot"
+2d_physics/layer_1="world"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemy"
+2d_physics/layer_4="loot"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

@@ -34,10 +34,16 @@ func _physics_process(delta: float) -> void:
 	#move_and_slide()
 
 
-func _hurt(power):
-	Hurt = true
-	HP -= power
-	modulate = Color.ORANGE_RED
-	await (get_tree().create_timer(0.2).timeout)
-	modulate = Color.WHITE
-	Hurt = false
+#func _hurt(power):
+	#Hurt = true
+	#HP -= power
+	#modulate = Color.ORANGE_RED
+	#await (get_tree().create_timer(0.2).timeout)
+	#modulate = Color.WHITE
+	#Hurt = false 
+
+
+func _on_hurt_box_hurt(damage: Variant) -> void:
+	HP -= damage
+	if HP < 0:
+		queue_free()

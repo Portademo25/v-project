@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dexn2e18f2bmf"]
+[gd_scene load_steps=6 format=3 uid="uid://dexn2e18f2bmf"]
 
 [ext_resource type="Texture2D" uid="uid://j41rm1uo7w4t" path="res://Assets/Temp/4509710_1.png" id="1_le2bm"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_pstjk"]
+[ext_resource type="PackedScene" uid="uid://bdl0a1f1d0whn" path="res://Utility/hurt_box.tscn" id="3_h6o4n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_of846"]
-radius = 32.0
-height = 78.0
+height = 35.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ols3"]
+size = Vector2(26, 57)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, 1)
@@ -30,5 +33,15 @@ wait_time = 1.5
 unique_name_in_owner = true
 wait_time = 0.075
 
+[node name="HurtBox" parent="." instance=ExtResource("3_h6o4n")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_3ols3")
+
 [connection signal="timeout" from="Attack/BubbleBlastTimer" to="." method="_on_bubble_blast_timer_timeout"]
 [connection signal="timeout" from="Attack/BubbleBlastTimer/BubbleBlastAttackTimer" to="." method="_on_bubble_blast_attack_timer_timeout"]
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]

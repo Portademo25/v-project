@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgy07o73pfysp"
+path="res://.godot/imported/disparo.mp3-6a43b4101d63d65af5566849bd548cec.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound fxs/disparo.mp3"
+dest_files=["res://.godot/imported/disparo.mp3-6a43b4101d63d65af5566849bd548cec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -77,3 +77,8 @@ func _on_bubble_blast_attack_timer_timeout():
 			bubble_blast_attack_timer.start()
 		else :
 			bubble_blast_attack_timer.stop()
+
+
+func _on_hurt_box_hurt(damage: Variant) -> void:
+	health -= damage # Replace with function body.
+	print(health)
