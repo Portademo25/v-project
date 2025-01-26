@@ -120,7 +120,7 @@ func _on_bubble_beam_timer_timeout():
 	bubble_beam_direction = global_position.direction_to(get_global_mouse_position())
 	bubble_beam_attack_timer.start()
 
-<<<<<<< HEAD
+
 func _on_hurt_box_hurt(damage: Variant) -> void:
 	health -= damage # Replace with function body.
 	
@@ -166,7 +166,7 @@ func set_expBar(set_value = 1, set_max_value = 100):
 	expBar.value = set_value
 	expBar.max_value = set_max_value
 	
-=======
+
 func _on_bubble_beam_attack_timer_timeout():
 	## Dispara el ataque
 	if bubble_beam_ammo> 0:
@@ -198,4 +198,3 @@ func _on_whirlpool_attack_timer_timeout():
 			whirlpool_attack_timer.start()
 		else :
 			whirlpool_attack_timer.stop()
->>>>>>> cb0f85a86177c5563f8b34e0f47ad49951c54a54
