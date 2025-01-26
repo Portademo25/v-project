@@ -8,26 +8,34 @@ var max_health = 80 ## Vida máxima del jugador
 ## ---------- ATAQUES ----------
 var bubble_blast = preload("res://Player/Weapons/bubble_blast.tscn")
 var bubble_beam = preload("res://Player/Weapons/bubble_beam.tscn")
+var whirlpool = preload("res://Player/Weapons/whirlpool.tscn")
 
 ## Nodos de ataque
 @onready var bubble_blast_timer = get_node("%BubbleBlastTimer")
 @onready var bubble_blast_attack_timer = get_node("%BubbleBlastAttackTimer")
 @onready var bubble_beam_timer = get_node("%BubbleBeamTimer")
 @onready var bubble_beam_attack_timer = get_node("%BubbleBeamAttackTimer")
+@onready var whirlpool_timer = get_node("%WhirlpoolTimer")
+@onready var whirlpool_attack_timer = get_node("%WhirlpoolAttackTimer")
 
 ## Bubble Blast
 var bubble_blast_ammo = 0 ## Cantidad de disparos
 var bubble_blast_baseammo = 1 ## Cantidad de proyectiles por disparo
 var bubble_blast_speed = 1.5 ## Rapidez de los proyectiles
 var bubble_blast_level = 1 ## Nivel del arma
-var direction = Vector2.ZERO
 
 ## Bubble Beam
 var bubble_beam_ammo = 0 ## Cantidad de disparos
 var bubble_beam_baseammo = 20 ## Cantidad de proyectiles por disparo
 var bubble_beam_speed = 4 ## Rapidez de los proyectiles
-var bubble_beam_level = 1 ## Nivel del arma
+var bubble_beam_level = 0 ## Nivel del arma
 var bubble_beam_direction = Vector2.ZERO ## Dirección del disparo
+
+## Whirlpool
+var whirlpool_ammo = 0 ## Cantidad de disparos
+var whirlpool_baseammo = 1 ## Cantidad de proyectiles por disparo
+var whirlpool_speed = 10 ## Rapidez de los proyectiles
+var whirlpool_level = 0 ## Nivel del arma
 
 ## ---------- ETC ----------
 @onready var sprite = $Sprite2D ## Sprite del jugador
@@ -76,6 +84,12 @@ func attack():
 		bubble_beam_timer.wait_time = bubble_beam_speed
 		if bubble_beam_timer.is_stopped():
 			bubble_beam_timer.start()
+	
+	## Whirlpool
+	if whirlpool_level > 0:
+		whirlpool_timer.wait_time = whirlpool_speed
+		if whirlpool_timer.is_stopped():
+			whirlpool_timer.start()
 
 func _on_bubble_blast_timer_timeout():
 	## Carga la munición
@@ -114,3 +128,21 @@ func _on_bubble_beam_attack_timer_timeout():
 			bubble_beam_attack_timer.start()
 		else :
 			bubble_beam_attack_timer.stop()
+
+func _on_whirlpool_timer_timeout():
+	## Carga la munición
+	whirlpool_ammo = whirlpool_baseammo
+	whirlpool_attack_timer.start()
+
+func _on_whirlpool_attack_timer_timeout():
+	## Dispara el ataque
+	if whirlpool_ammo> 0:
+		var whirlpool_attack = whirlpool.instantiate()
+		whirlpool_attack.position = position
+		whirlpool_attack.level = whirlpool_level
+		add_child(whirlpool_attack)
+		whirlpool_ammo -= 1
+		if whirlpool_ammo > 0:
+			whirlpool_attack_timer.start()
+		else :
+			whirlpool_attack_timer.stop()

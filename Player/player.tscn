@@ -31,7 +31,17 @@ wait_time = 1.5
 unique_name_in_owner = true
 wait_time = 0.001
 
+[node name="WhirlpoolTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 1.5
+
+[node name="WhirlpoolAttackTimer" type="Timer" parent="Attack/WhirlpoolTimer"]
+unique_name_in_owner = true
+wait_time = 0.075
+
 [connection signal="timeout" from="Attack/BubbleBlastTimer" to="." method="_on_bubble_blast_timer_timeout"]
 [connection signal="timeout" from="Attack/BubbleBlastTimer/BubbleBlastAttackTimer" to="." method="_on_bubble_blast_attack_timer_timeout"]
 [connection signal="timeout" from="Attack/BubbleBeamTimer" to="." method="_on_bubble_beam_timer_timeout"]
 [connection signal="timeout" from="Attack/BubbleBeamTimer/BubbleBeamAttackTimer" to="." method="_on_bubble_beam_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/WhirlpoolTimer" to="." method="_on_whirlpool_timer_timeout"]
+[connection signal="timeout" from="Attack/WhirlpoolTimer/WhirlpoolAttackTimer" to="." method="_on_whirlpool_attack_timer_timeout"]
