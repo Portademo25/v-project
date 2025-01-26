@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 ## ---------- STATS ----------
-var speed = 80 ## Rapidez del jugador
+var speed = 40 ## Rapidez del jugador
 var health = 80 ## Vida actual del jugador
 var max_health = 80 ## Vida máxima del jugador
 var experiencia = 0 ## Experiencia a recolectar
@@ -10,16 +10,35 @@ var collected_experiencia = 0 ## coleccion de exp
 
 ## ---------- ATAQUES ----------
 var bubble_blast = preload("res://Player/Weapons/bubble_blast.tscn")
+var bubble_beam = preload("res://Player/Weapons/bubble_beam.tscn")
+var whirlpool = preload("res://Player/Weapons/whirlpool.tscn")
 
 ## Nodos de ataque
 @onready var bubble_blast_timer = get_node("%BubbleBlastTimer")
 @onready var bubble_blast_attack_timer = get_node("%BubbleBlastAttackTimer")
+@onready var bubble_beam_timer = get_node("%BubbleBeamTimer")
+@onready var bubble_beam_attack_timer = get_node("%BubbleBeamAttackTimer")
+@onready var whirlpool_timer = get_node("%WhirlpoolTimer")
+@onready var whirlpool_attack_timer = get_node("%WhirlpoolAttackTimer")
 
 ## Bubble Blast
 var bubble_blast_ammo = 0 ## Cantidad de disparos
 var bubble_blast_baseammo = 1 ## Cantidad de proyectiles por disparo
 var bubble_blast_speed = 1.5 ## Rapidez de los proyectiles
 var bubble_blast_level = 1 ## Nivel del arma
+
+## Bubble Beam
+var bubble_beam_ammo = 0 ## Cantidad de disparos
+var bubble_beam_baseammo = 20 ## Cantidad de proyectiles por disparo
+var bubble_beam_speed = 4 ## Rapidez de los proyectiles
+var bubble_beam_level = 0 ## Nivel del arma
+var bubble_beam_direction = Vector2.ZERO ## Dirección del disparo
+
+## Whirlpool
+var whirlpool_ammo = 0 ## Cantidad de disparos
+var whirlpool_baseammo = 1 ## Cantidad de proyectiles por disparo
+var whirlpool_speed = 10 ## Rapidez de los proyectiles
+var whirlpool_level = 0 ## Nivel del arma
 
 ## ---------- ETC ----------
 @onready var sprite = $Sprite2D ## Sprite del jugador
@@ -64,6 +83,18 @@ func attack():
 		bubble_blast_timer.wait_time = bubble_blast_speed
 		if bubble_blast_timer.is_stopped():
 			bubble_blast_timer.start()
+	
+	## Bubble Beam
+	if bubble_beam_level > 0:
+		bubble_beam_timer.wait_time = bubble_beam_speed
+		if bubble_beam_timer.is_stopped():
+			bubble_beam_timer.start()
+	
+	## Whirlpool
+	if whirlpool_level > 0:
+		whirlpool_timer.wait_time = whirlpool_speed
+		if whirlpool_timer.is_stopped():
+			whirlpool_timer.start()
 
 func _on_bubble_blast_timer_timeout():
 	## Carga la munición
@@ -83,7 +114,13 @@ func _on_bubble_blast_attack_timer_timeout():
 		else :
 			bubble_blast_attack_timer.stop()
 
+func _on_bubble_beam_timer_timeout():
+	## Carga la munición
+	bubble_beam_ammo = bubble_beam_baseammo
+	bubble_beam_direction = global_position.direction_to(get_global_mouse_position())
+	bubble_beam_attack_timer.start()
 
+<<<<<<< HEAD
 func _on_hurt_box_hurt(damage: Variant) -> void:
 	health -= damage # Replace with function body.
 	
@@ -129,3 +166,36 @@ func set_expBar(set_value = 1, set_max_value = 100):
 	expBar.value = set_value
 	expBar.max_value = set_max_value
 	
+=======
+func _on_bubble_beam_attack_timer_timeout():
+	## Dispara el ataque
+	if bubble_beam_ammo> 0:
+		var bubble_beam_attack = bubble_beam.instantiate()
+		bubble_beam_attack.position = position
+		bubble_beam_attack.level = bubble_beam_level
+		bubble_beam_attack.direction = bubble_beam_direction
+		add_child(bubble_beam_attack)
+		bubble_beam_ammo -= 1
+		if bubble_beam_ammo > 0:
+			bubble_beam_attack_timer.start()
+		else :
+			bubble_beam_attack_timer.stop()
+
+func _on_whirlpool_timer_timeout():
+	## Carga la munición
+	whirlpool_ammo = whirlpool_baseammo
+	whirlpool_attack_timer.start()
+
+func _on_whirlpool_attack_timer_timeout():
+	## Dispara el ataque
+	if whirlpool_ammo> 0:
+		var whirlpool_attack = whirlpool.instantiate()
+		whirlpool_attack.position = position
+		whirlpool_attack.level = whirlpool_level
+		add_child(whirlpool_attack)
+		whirlpool_ammo -= 1
+		if whirlpool_ammo > 0:
+			whirlpool_attack_timer.start()
+		else :
+			whirlpool_attack_timer.stop()
+>>>>>>> cb0f85a86177c5563f8b34e0f47ad49951c54a54
