@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 [gd_scene load_steps=10 format=3 uid="uid://dexn2e18f2bmf"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_pstjk"]
@@ -12,12 +12,12 @@ height = 35.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ols3"]
 size = Vector2(26, 57)
-=======
+
 [gd_scene load_steps=3 format=3 uid="uid://dexn2e18f2bmf"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xnhpy"]
 [ext_resource type="Texture2D" uid="uid://j41rm1uo7w4t" path="res://Temp/4509710_1.png" id="2_bkcgm"]
->>>>>>> cb0f85a86177c5563f8b34e0f47ad49951c54a54
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3hovu"]
 radius = 50.0
@@ -30,14 +30,14 @@ motion_mode = 1
 script = ExtResource("1_xnhpy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-<<<<<<< HEAD
+
 texture = ExtResource("2_6wcd1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_of846")
-=======
+
 texture = ExtResource("2_bkcgm")
->>>>>>> cb0f85a86177c5563f8b34e0f47ad49951c54a54
+
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
